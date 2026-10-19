@@ -31,7 +31,7 @@ export const customExtras: PriceLine[] = [
 export const designAndDelivery: PriceLine[] = [
   { label: 'Дизайн одной фигурки, 2–3 правки', price: '12 000 тг' },
   { label: 'Набор из 4 дизайнов', price: '40 000 тг' },
-  { label: 'При договоре на квартал', price: '1-й дизайн бесплатно' },
+  { label: 'Договор на квартал от 2 000 шт', price: '1-й дизайн бесплатно' },
   { label: 'Доставка партии до 500 шт', price: '2 000 тг' },
   { label: 'Доставка партии от 500 шт', price: 'бесплатно' },
 ];
