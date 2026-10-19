@@ -22,6 +22,12 @@ const terms = [
   },
 ];
 
+const scenarios = [
+  "К части меню: детские напитки, авторский напиток или сезонное предложение.",
+  "За коллекцию: гость получает фигурку с напитком, а за собранную серию — напиток в подарок.",
+  "Как добавку к напитку: гость доплачивает за фигурку, и она приносит вам доход, а не расход.",
+];
+
 function Price({ value, old }: { value: number; old?: number }) {
   return (
     <>
@@ -74,6 +80,15 @@ export default function Pricing() {
           ))}
         </tbody>
       </table>
+
+      <div className={styles.scenarios}>
+        <h3>Не обязательно на каждый стакан</h3>
+        <ul className="dots">
+          {scenarios.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
 
       <div className={styles.cards}>
         <PriceCard title="Своя фигурка" lines={customExtras} />

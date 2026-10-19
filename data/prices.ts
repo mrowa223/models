@@ -14,10 +14,9 @@ export const trialQuantity = 100;
 
 export const scale: ScaleRow[] = [
   { label: 'Пробная партия', note: '100 шт, скидка на первый заказ',
-    one: 120, oldOne: 150, highlight: true },
-  { label: 'До 200 шт', one: 150 },
-  { label: '200–500 шт', one: 120 },
-  { label: '500–1 500 шт', note: 'максимальный объём', one: 110, highlight: true },
+    one: 110, oldOne: 130, highlight: true },
+  { label: '200–500 шт', one: 130 },
+  { label: '500–1 500 шт', note: 'максимальный объём', one: 115, highlight: true },
 ];
 
 export const customExtras: PriceLine[] = [
@@ -29,7 +28,7 @@ export const customExtras: PriceLine[] = [
 export const designAndDelivery: PriceLine[] = [
   { label: 'Дизайн одной фигурки, 2–3 правки', price: 12000 },
   { label: 'Набор из 4 дизайнов', price: 40000 },
-  { label: 'Договор на квартал от 2 000 шт', price: '1-й дизайн бесплатно' },
+  { label: 'Заказ от 1 000 шт', price: '1-й дизайн бесплатно' },
   { label: 'Доставка партии до 500 шт', price: 2000 },
   { label: 'Доставка партии от 500 шт', price: 'бесплатно' },
 ];

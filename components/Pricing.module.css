@@ -70,6 +70,14 @@
   color: var(--muted);
 }
 
+.scenarios {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
