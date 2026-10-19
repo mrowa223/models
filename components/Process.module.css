@@ -1,0 +1,50 @@
+.block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.steps {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  counter-reset: order;
+}
+
+.steps li {
+  counter-increment: order;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  column-gap: 12px;
+  align-items: start;
+}
+
+.steps li::before {
+  content: counter(order);
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.steps b {
+  line-height: 32px;
+}
+
+.steps span {
+  max-width: 62ch;
+}
+
+@media (max-width: 460px) {
+  .block {
+    padding: 20px;
+  }
+}

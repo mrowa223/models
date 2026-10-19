@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Idea from "@/components/Idea";
 import Placement from "@/components/Placement";
 import Pricing from "@/components/Pricing";
+import Process from "@/components/Process";
 import Steps from "@/components/Steps";
 import Value from "@/components/Value";
 import Variants from "@/components/Variants";
@@ -18,6 +19,7 @@ export default function Page() {
       <Value />
       <Steps />
       <Pricing />
+      <Process />
       <Cta />
     </main>
   );
