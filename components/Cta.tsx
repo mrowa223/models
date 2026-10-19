@@ -1,5 +1,5 @@
-import { whatsappUrl } from "@/data/contacts";
 import { trialQuantity } from "@/data/prices";
+import WhatsAppButton from "./WhatsAppButton";
 import styles from "./Cta.module.css";
 
 export default function Cta() {
@@ -11,9 +11,7 @@ export default function Cta() {
         я подготовлю {trialQuantity} штук для вашей точки. Если руководству нужно посмотреть
         вживую, привезу образец на стакане.
       </p>
-      <a className={styles.button} href={whatsappUrl} target="_blank" rel="noopener">
-        Написать в WhatsApp
-      </a>
+      <WhatsAppButton tone="inverse" />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { trialQuantity } from "@/data/prices";
+import { formatPrice, trialQuantity, trialRow } from "@/data/prices";
 import styles from "./Process.module.css";
 
 const steps = [
@@ -7,35 +7,31 @@ const steps = [
     text: "Пишете в WhatsApp, какую фигурку хотите и примерный расход стаканов.",
   },
   {
-    title: "Выбор модели",
-    text: "Готовая фигурка или любая другая модель под размер крышки: по вашему логотипу, маскоту или идее.",
-  },
-  {
-    title: "Эскиз",
-    text: "Для своей модели делаю эскиз и вношу 2–3 правки, пока вам не понравится.",
+    title: "Модель",
+    text: "Готовая фигурка или своя под размер крышки. Для своей делаю эскиз и вношу 2–3 правки.",
   },
   {
     title: "Образец",
     text: "Привожу фигурку на стакане, чтобы вы и руководство посмотрели вживую.",
   },
   {
-    title: "Объём и цена",
-    text: "Согласуем количество, число цветов и срок. Цена считается по шкале выше.",
+    title: "Пробная партия",
+    text: `${trialQuantity} фигурок по ${formatPrice(trialRow.one)} вместо ${formatPrice(trialRow.oldOne ?? trialRow.one)}, готово за неделю.`,
   },
   {
-    title: "Печать",
-    text: `Пробная партия из ${trialQuantity} штук готова за неделю, срок большего заказа назову под ваш объём.`,
+    title: "Проба на точке",
+    text: "Смотрите, успевают ли бариста и сколько гостей забирают фигурку с собой.",
   },
   {
-    title: "Поставка",
-    text: "Привожу партию на вашу точку. Дальше регулярные поставки под ваш расход стаканов.",
+    title: "Регулярные поставки",
+    text: "Объём под ваш расход стаканов, цена по шкале выше. Привожу партии на вашу точку.",
   },
 ];
 
 export default function Process() {
   return (
     <section className={`section ${styles.block}`}>
-      <span className="eyebrow">Оформление</span>
+      <span className="eyebrow">Запуск</span>
       <h2>Как проходит заказ</h2>
       <ol className={styles.steps}>
         {steps.map((step) => (

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import hero from "@/assets/img/hero.webp";
+import WhatsAppButton from "./WhatsAppButton";
 import styles from "./Hero.module.css";
 
 const facts = [
@@ -26,6 +27,7 @@ export default function Hero() {
             </li>
           ))}
         </ul>
+        <WhatsAppButton tone="band" desktopOnly />
       </div>
       <Image
         className="photo"

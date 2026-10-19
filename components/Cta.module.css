@@ -5,36 +5,9 @@
   padding: 32px;
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  min-height: 48px;
-  padding: 12px 24px;
-  border-radius: var(--radius-pill);
-  background: var(--on-accent);
-  color: var(--accent);
-  font-weight: 700;
-  text-decoration: none;
-  transition: opacity 0.15s ease;
-}
-
-.button:hover {
-  opacity: 0.9;
-}
-
-.button:focus-visible {
-  outline: 3px solid var(--on-accent);
-  outline-offset: 3px;
-}
 
 @media (max-width: 460px) {
   .cta {
     padding: 20px;
-  }
-
-  .button {
-    width: 100%;
   }
 }

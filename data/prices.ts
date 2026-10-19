@@ -6,7 +6,8 @@ export type ScaleRow = {
   highlight?: boolean;
 };
 
-export type PriceLine = { label: string; price: string };
+// price — число в тенге (форматируется в вёрстке) или готовый текст вроде «бесплатно»
+export type PriceLine = { label: string; price: number | string; plus?: boolean };
 
 // Размер пробной партии — используется в шагах, условиях и финальном блоке
 export const trialQuantity = 100;
@@ -20,20 +21,30 @@ export const scale: ScaleRow[] = [
 ];
 
 export const customExtras: PriceLine[] = [
-  { label: 'Кастом до 1,5 × 2 см', price: '+15 тг' },
-  { label: 'Размер до 2 × 2,5 см', price: '+25 тг' },
-  { label: 'Размер до 3 × 3 см', price: '+50 тг' },
+  { label: 'Кастом до 1,5 × 2 см', price: 15, plus: true },
+  { label: 'Размер до 2 × 2,5 см', price: 25, plus: true },
+  { label: 'Размер до 3 × 3 см', price: 50, plus: true },
 ];
 
 export const designAndDelivery: PriceLine[] = [
-  { label: 'Дизайн одной фигурки, 2–3 правки', price: '12 000 тг' },
-  { label: 'Набор из 4 дизайнов', price: '40 000 тг' },
+  { label: 'Дизайн одной фигурки, 2–3 правки', price: 12000 },
+  { label: 'Набор из 4 дизайнов', price: 40000 },
   { label: 'Договор на квартал от 2 000 шт', price: '1-й дизайн бесплатно' },
-  { label: 'Доставка партии до 500 шт', price: '2 000 тг' },
+  { label: 'Доставка партии до 500 шт', price: 2000 },
   { label: 'Доставка партии от 500 шт', price: 'бесплатно' },
 ];
 
 const numberFormat = new Intl.NumberFormat('ru-RU');
+
+// Цифры не отрываются от соседних цифр и единиц: «2 000 шт» не переносится посередине
+export function keepNumbers(text: string): string {
+  return text.replace(/(\d) (?=\d|шт|см|тг)/g, "$1\u00a0");
+}
+
+export function formatLinePrice(line: PriceLine): string {
+  if (typeof line.price === "string") return line.price;
+  return `${line.plus ? "+" : ""}${formatPrice(line.price)}`;
+}
 
 // «150 тг» с неразрывным пробелом, тысячи через пробел
 export function formatPrice(value: number): string {

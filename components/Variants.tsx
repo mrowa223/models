@@ -42,10 +42,6 @@ export default function Variants() {
           </div>
         </article>
       </div>
-      <p className="note">
-        Под заказ можно сделать сезонные фигурки, например к Новому году или к весне, и фигурки в
-        цветах вашего бренда.
-      </p>
     </section>
   );
 }

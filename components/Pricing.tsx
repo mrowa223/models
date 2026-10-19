@@ -1,11 +1,15 @@
 import {
   customExtras,
   designAndDelivery,
+  formatLinePrice,
   formatPrice,
+  keepNumbers,
   scale,
   trialQuantity,
+  trialRow,
   type PriceLine,
 } from "@/data/prices";
+import WhatsAppButton from "./WhatsAppButton";
 import styles from "./Pricing.module.css";
 
 const terms = [
@@ -34,8 +38,8 @@ function PriceCard({ title, lines }: { title: string; lines: PriceLine[] }) {
       <dl className={styles.lines}>
         {lines.map((line) => (
           <div key={line.label}>
-            <dt>{line.label}</dt>
-            <dd>{line.price}</dd>
+            <dt>{keepNumbers(line.label)}</dt>
+            <dd>{formatLinePrice(line)}</dd>
           </div>
         ))}
       </dl>
@@ -60,7 +64,7 @@ export default function Pricing() {
           {scale.map((row) => (
             <tr key={row.label} className={row.highlight ? styles.highlight : undefined}>
               <th scope="row">
-                {row.label}
+                {keepNumbers(row.label)}
                 {row.note && <span className={styles.rowNote}>{row.note}</span>}
               </th>
               <td>
@@ -75,6 +79,8 @@ export default function Pricing() {
         <PriceCard title="Своя фигурка" lines={customExtras} />
         <PriceCard title="Дизайн и доставка" lines={designAndDelivery} />
       </div>
+
+      <WhatsAppButton label={`Заказать пробу за ${formatPrice(trialQuantity * trialRow.one)}`} />
 
       <h3>Условия</h3>
       <dl className={styles.terms}>
