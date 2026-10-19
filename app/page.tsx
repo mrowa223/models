@@ -14,10 +14,10 @@ export default function Page() {
     <main className={styles.wrap}>
       <Hero />
       <WhatsAppButton sticky />
+      <Value />
       <Collection />
       <Placement />
       <Variants />
-      <Value />
       <Pricing />
       <Process />
       <Cta />
