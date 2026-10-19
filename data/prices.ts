@@ -58,7 +58,7 @@ export const scale: ScaleRow[] = [trial, regular, bulk];
 
 export const smallDelivery = 2000;
 export const designOne = 12000;
-export const designSeries = 40000;
+export const designSeries = 24000;
 
 // Надбавка к цене шкалы за свою фигурку
 export const customExtraSmall = 15;
