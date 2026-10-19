@@ -2,7 +2,7 @@ import { formatPrice, regularRow, trialQuantity, trialRow } from "@/data/prices"
 import styles from "./Steps.module.css";
 
 const steps = [
-  { title: "Выбираете фигурку", text: "Для пробы мишку или чашечку." },
+  { title: "Выбираете фигурку", text: "Мишку, чашечку или любую другую модель под размер крышки." },
   {
     title: "Пробная партия",
     text: `${trialQuantity} готовых фигурок по ${formatPrice(trialRow.one)} вместо ${trialRow.oldOne}, скидка на первый заказ.`,
