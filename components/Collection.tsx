@@ -31,7 +31,8 @@ export default function Collection() {
           ))}
           <li className={styles.reward}>
             <span className={styles.num}>{seriesRange}</span>
-            <span>Серия собрана - напиток в подарок</span>
+            <span>Напиток в подарок</span>
+            <span className="sr-only">за собранную серию</span>
           </li>
         </ol>
       </div>
