@@ -4,6 +4,7 @@ import {
   designAndDelivery,
   designSeries,
   formatCount,
+  formatCustomSizes,
   formatLinePrice,
   formatPrice,
   freeDesignFrom,
@@ -158,8 +159,8 @@ export default function Pricing() {
             {formatPrice(designSeries)}. Доставка бесплатно.
           </p>
           <p className="muted">
-            При заказе от {formatCount(freeDesignFrom)} дизайн первой фигурки
-            бесплатно.
+            Цена своей фигурки зависит от её размера: {keepNumbers(formatCustomSizes())} к цене
+            шкалы. При заказе от {formatCount(freeDesignFrom)} дизайн первой фигурки бесплатно.
           </p>
           <WhatsAppButton
             label="Обсудить свою серию"

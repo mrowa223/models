@@ -47,7 +47,7 @@ export default function Variants() {
             <span className={styles.tag}>Под заказ</span>
             <h3>Своя фигурка</h3>
             <span className={styles.size}>
-              По вашему логотипу, маскоту или идее. Можно одну или целую серию.
+              По вашему логотипу, маскоту или идее. Можно одну или целую серию. Цена зависит от размера фигурки.
             </span>
           </div>
         </article>

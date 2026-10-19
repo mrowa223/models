@@ -65,15 +65,27 @@ export const customExtraSmall = 15;
 
 export const customExtraLarge = 50;
 
-export const customExtras: PriceLine[] = [
-  {
-    label: "Размером с мишку, до 1,5 × 2 см",
-    price: customExtraSmall,
-    plus: true,
-  },
-  { label: "До 2 × 2,5 см", price: 25, plus: true },
-  { label: "До 3 × 3 см", price: customExtraLarge, plus: true },
+// Цена своей фигурки зависит от её размера
+export const customSizes = [
+  { size: "до 1,5 × 2 см", note: "размером с мишку", price: customExtraSmall },
+  { size: "до 2 × 2,5 см", price: 25 },
+  { size: "до 3 × 3 см", price: customExtraLarge },
 ];
+
+const capitalize = (text: string) => text[0].toUpperCase() + text.slice(1);
+
+export const customExtras: PriceLine[] = customSizes.map((item) => ({
+  label: capitalize(item.note ? `${item.note}, ${item.size}` : item.size),
+  price: item.price,
+  plus: true,
+}));
+
+// «до 1,5 × 2 см +15 тг, до 2 × 2,5 см +25 тг, …» для текста
+export function formatCustomSizes(): string {
+  return customSizes
+    .map((item) => `${item.size} +${formatPrice(item.price)}`)
+    .join(", ");
+}
 
 export const designAndDelivery: PriceLine[] = [
   { label: "Дизайн одной фигурки, 2–3 правки", price: designOne },
