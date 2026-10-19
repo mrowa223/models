@@ -1,4 +1,11 @@
-import { bestRow, drinkPriceExample, formatPrice, regularRow } from "@/data/prices";
+import {
+  bestRow,
+  drinkPriceExample,
+  formatPrice,
+  regularRow,
+  trialQuantity,
+  trialRow,
+} from "@/data/prices";
 import styles from "./Value.module.css";
 
 const cupsPerFreeDrink = `${Math.floor(drinkPriceExample / regularRow.one)}–${Math.floor(
@@ -19,8 +26,8 @@ const values = [
     text: "Гости снимают стакан до первого глотка и отмечают вас в сторис. Делайте репосты, и живые фото появятся без съёмок.",
   },
   {
-    title: "Коллекция вместо карты лояльности",
-    text: "Выпустите серию из четырёх фигурок. Кто соберёт всю серию, получает напиток в подарок. Карты и приложение не нужны.",
+    title: "Проверка без риска",
+    text: `Пробная партия стоит ${formatPrice(trialQuantity * trialRow.one)}. Запускаете на одной точке и по итогам решаете, продолжать ли.`,
   },
   {
     title: "Новая серия — повод зайти",

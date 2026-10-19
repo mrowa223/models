@@ -1,3 +1,4 @@
+import Collection from "@/components/Collection";
 import Cta from "@/components/Cta";
 import Hero from "@/components/Hero";
 import Idea from "@/components/Idea";
@@ -13,6 +14,7 @@ export default function Page() {
   return (
     <main className={styles.wrap}>
       <Hero />
+      <Collection />
       <Idea />
       <Placement />
       <Variants />

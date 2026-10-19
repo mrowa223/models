@@ -16,10 +16,7 @@ export const scale: ScaleRow[] = [
     one: 120, oldOne: 150, highlight: true },
   { label: 'До 200 шт', one: 150 },
   { label: '200–500 шт', one: 120 },
-  { label: '500–1 500 шт', one: 110 },
-  { label: '1 500–3 000 шт', one: 90 },
-  { label: 'От 3 000 шт в месяц', note: 'договор на квартал',
-    one: 85, highlight: true },
+  { label: '500–1 500 шт', note: 'максимальный объём', one: 110, highlight: true },
 ];
 
 export const customExtras: PriceLine[] = [
