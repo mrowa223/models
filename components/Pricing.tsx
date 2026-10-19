@@ -15,7 +15,7 @@ import {
   formatNumber,
   keepNumbers,
   scale,
-  seriesSize,
+  seriesRange,
   smallDelivery,
   trialCost,
   trialQuantity,
@@ -148,7 +148,7 @@ export default function Pricing() {
             от {formatPrice(seriesExample.total)}{" "}
             <span>
               первая серия: {formatCount(seriesExample.quantity)} и дизайн{" "}
-              {seriesSize} фигурок
+              {seriesRange} фигурок
             </span>
           </p>
           <p className={styles.example}>

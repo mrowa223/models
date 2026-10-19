@@ -16,8 +16,8 @@
 .series {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .series li {
@@ -25,13 +25,14 @@
   display: grid;
   align-content: center;
   justify-items: center;
-  gap: 6px;
-  padding: 12px;
+  gap: 4px;
+  padding: 8px;
   text-align: center;
   border: 2px dashed var(--accent);
   border-radius: var(--radius);
   color: var(--accent);
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.3;
   font-weight: 500;
 }
 
@@ -55,6 +56,10 @@
 
   .num {
     font-size: 22px;
+  }
+
+  .series li {
+    font-size: 12px;
   }
 }
 

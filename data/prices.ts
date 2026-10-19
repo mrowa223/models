@@ -13,7 +13,9 @@ export type PriceLine =
 
 // Пороги и размеры - используются в нескольких секциях
 export const trialQuantity = 100;
-export const seriesSize = 4;
+export const seriesMin = 6;
+export const seriesMax = 8;
+export const seriesRange = `${seriesMin}–${seriesMax}`;
 export const bulkFrom = 500;
 export const bulkMax = 1500;
 export const freeDesignFrom = 1000;
@@ -89,7 +91,7 @@ export function formatCustomSizes(): string {
 
 export const designAndDelivery: PriceLine[] = [
   { label: "Дизайн одной фигурки, 2–3 правки", price: designOne },
-  { label: `Дизайн серии из ${seriesSize} фигурок`, price: designSeries },
+  { label: `Дизайн серии из ${seriesRange} фигурок`, price: designSeries },
   {
     label: `Заказ от ${formatCount(freeDesignFrom)}`,
     text: "дизайн 1-й фигурки бесплатно",
@@ -129,6 +131,3 @@ export const seriesExample = (() => {
   return { quantity, extra, print, total: print + designSeries };
 })();
 export const trialTotal = trialCost + smallDelivery;
-
-// Пример цены напитка для сравнения в блоке «Что вы получаете»
-export const drinkPriceExample = 1500;
