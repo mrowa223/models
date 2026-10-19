@@ -4,6 +4,7 @@ import Idea from "@/components/Idea";
 import Placement from "@/components/Placement";
 import Pricing from "@/components/Pricing";
 import Steps from "@/components/Steps";
+import Value from "@/components/Value";
 import Variants from "@/components/Variants";
 import styles from "./page.module.css";
 
@@ -14,6 +15,7 @@ export default function Page() {
       <Idea />
       <Placement />
       <Variants />
+      <Value />
       <Steps />
       <Pricing />
       <Cta />

@@ -45,3 +45,7 @@ export function formatPrice(value: number): string {
 
 export const trialRow = scale[0];
 export const regularRow = scale[1];
+export const bestRow = scale[scale.length - 1];
+
+// Пример цены напитка для сравнения в блоке «Что вы получаете»
+export const drinkPriceExample = 1500;

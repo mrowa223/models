@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
   // ESLint в проекте не настроен
   eslint: { ignoreDuringBuilds: true },
   images: {
-    formats: ["image/avif", "image/webp"],
+    // Фото уже сжаты в WebP по 25–30 КБ — отдаём как есть, без задержки оптимизатора
+    unoptimized: true,
   },
 };
 

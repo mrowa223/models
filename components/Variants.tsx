@@ -1,9 +1,11 @@
 import Image from "next/image";
+import bear from "@/assets/img/bear.webp";
+import cup from "@/assets/img/cup.webp";
 import styles from "./Variants.module.css";
 
 const ready = [
-  { image: "/img/bear.webp", width: 652, height: 822, title: "Мишка с сердечком", size: "1,5 × 2 см" },
-  { image: "/img/cup.webp", width: 573, height: 900, title: "Чашечка с латте-артом", size: "около 1,5 см" },
+  { image: bear, title: "Мишка с сердечком", size: "1,5 × 2 см" },
+  { image: cup, title: "Чашечка с латте-артом", size: "около 1,5 см" },
 ];
 
 export default function Variants() {
@@ -18,8 +20,8 @@ export default function Variants() {
               className={styles.image}
               src={item.image}
               alt={item.title}
-              width={item.width}
-              height={item.height}
+              placeholder="blur"
+              loading="eager"
               sizes="(max-width: 460px) 100vw, (max-width: 720px) 50vw, 310px"
             />
             <div className={styles.body}>

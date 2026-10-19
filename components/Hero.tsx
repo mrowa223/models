@@ -1,4 +1,5 @@
 import Image from "next/image";
+import hero from "@/assets/img/hero.webp";
 import styles from "./Hero.module.css";
 
 const facts = [
@@ -28,10 +29,9 @@ export default function Hero() {
       </div>
       <Image
         className="photo"
-        src="/img/hero.webp"
+        src={hero}
         alt="Стакан с мишкой и двумя чашечками на крышке"
-        width={729}
-        height={900}
+        placeholder="blur"
         sizes="(max-width: 720px) 100vw, 440px"
         priority
       />

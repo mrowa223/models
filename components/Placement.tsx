@@ -1,4 +1,6 @@
 import Image from "next/image";
+import lidCup from "@/assets/img/lid-cup.webp";
+import lidTop from "@/assets/img/lid-top.webp";
 import styles from "./Placement.module.css";
 
 const points = [
@@ -9,8 +11,8 @@ const points = [
 ];
 
 const photos = [
-  { src: "/img/lid-cup.webp", alt: "Чашечка с латте-артом на крышке стакана", width: 653, height: 900 },
-  { src: "/img/lid-top.webp", alt: "Мишка и чашечки на крышке, вид сверху", width: 631, height: 900 },
+  { src: lidCup, alt: "Чашечка с латте-артом на крышке стакана" },
+  { src: lidTop, alt: "Мишка и чашечки на крышке, вид сверху" },
 ];
 
 export default function Placement() {
@@ -28,9 +30,12 @@ export default function Placement() {
       <div className={styles.photos}>
         {photos.map((photo) => (
           <Image
-            key={photo.src}
+            key={photo.alt}
             className="photo"
-            {...photo}
+            src={photo.src}
+            alt={photo.alt}
+            placeholder="blur"
+            loading="eager"
             sizes="(max-width: 720px) 50vw, 220px"
           />
         ))}
