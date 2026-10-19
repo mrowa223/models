@@ -7,6 +7,8 @@ import {
   formatLinePrice,
   formatPrice,
   freeDesignFrom,
+  seriesExample,
+  bulk,
   keepNumbers,
   scale,
   seriesSize,
@@ -55,7 +57,7 @@ function Price({ value, old }: { value: number; old?: number }) {
 function PriceCard({ title, note, lines }: { title: string; note?: string; lines: PriceLine[] }) {
   return (
     <div className={styles.card}>
-      <h4>{title}</h4>
+      <h3>{title}</h3>
       {note && <p className="muted">{note}</p>}
       <dl className={styles.lines}>
         {lines.map((line) => (
@@ -73,9 +75,9 @@ export default function Pricing() {
   return (
     <section className="section">
       <span className="eyebrow">Цена</span>
-      <h2 id="pricing-title">Сколько стоит фигурка</h2>
+      <h2>Сколько стоит фигурка</h2>
 
-      <table className={styles.table} aria-labelledby="pricing-title">
+      <table className={styles.table}>
         <caption className="sr-only">Цена одной фигурки в зависимости от объёма</caption>
         <thead>
           <tr>
@@ -104,20 +106,26 @@ export default function Pricing() {
           <h3>Проба готовой фигурки</h3>
           <p className={styles.offerPrice}>{formatPrice(trialTotal)}</p>
           <p className="muted">
-            {trialQuantity} мишек или чашечек ({formatPrice(trialCost)}) и доставка (
+            {trialQuantity}&nbsp;мишек или чашечек ({formatPrice(trialCost)}) и доставка (
             {formatPrice(smallDelivery)}). Проверяете, как гости принимают фигурку.
           </p>
           <WhatsAppButton label="Заказать пробу" />
         </div>
         <div className={`${styles.offer} ${styles.offerAccent}`}>
-          <span className={styles.offerTag}>Главная идея</span>
+          <span className={styles.offerTag}>Под ваш бренд</span>
           <h3>Своя серия фигурок</h3>
           <p className={styles.offerPrice}>
             {formatPrice(designSeries)} <span>за дизайн {seriesSize} фигурок</span>
           </p>
           <p className="muted">
-            Фигурки по вашему логотипу, маскоту или идее. Печать — по шкале выше с надбавкой за
-            размер. При заказе от {formatCount(freeDesignFrom)} первый дизайн бесплатно.
+            Печать — по шкале выше с надбавкой за свою фигурку. При заказе от{" "}
+            {formatCount(freeDesignFrom)} дизайн первой фигурки бесплатно.
+          </p>
+          <p className={styles.example}>
+            Пример: {seriesExample.quantity}&nbsp;фигурок размером с мишку — (
+            {formatPrice(bulk.one)} + {formatPrice(seriesExample.extra)}) ×{" "}
+            {formatCount(seriesExample.quantity)} = {formatPrice(seriesExample.print)}, с дизайном
+            серии {formatPrice(seriesExample.total)}. Доставка бесплатно.
           </p>
           <WhatsAppButton label="Обсудить свою серию" href={whatsappSeriesUrl} />
         </div>

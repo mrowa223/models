@@ -34,6 +34,12 @@
   color: var(--accent);
 }
 
+/* вторая кнопка на зелёном финальном блоке */
+.outline {
+  border: 2px solid var(--on-accent);
+  color: var(--on-accent);
+}
+
 /* на коричневом первом экране */
 .band {
   background: var(--band-accent);

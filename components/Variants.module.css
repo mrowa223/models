@@ -46,9 +46,6 @@
   font-family: var(--display);
   color: var(--accent);
   font-size: 18px;
-}
-
-.customTile {
   grid-auto-flow: column;
   gap: 12px;
 }

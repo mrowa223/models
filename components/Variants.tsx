@@ -5,7 +5,7 @@ import styles from "./Variants.module.css";
 
 const ready = [
   { image: bear, title: "Мишка с сердечком", alt: "Коричневый мишка с красным сердечком на светлом столе", size: "1,5 × 2 см" },
-  { image: cup, title: "Чашечка с латте-артом", alt: "Две зелёные чашечки и мишка на крышке стакана", size: "около 1,5 см", top: true },
+  { image: cup, title: "Чашечка с латте-артом", alt: "Две зелёные чашечки и мишка на крышке стакана", size: "≈ 1,5 см", top: true },
 ];
 
 export default function Variants() {

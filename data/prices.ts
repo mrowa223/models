@@ -45,7 +45,7 @@ export const regular: ScaleRow = {
 
 export const bulk: ScaleRow = {
   label: `${numberFormat.format(bulkFrom)}–${formatCount(bulkMax)}`,
-  note: 'максимальный объём',
+  note: 'за одну партию',
   one: 105,
   highlight: true,
 };
@@ -57,8 +57,10 @@ export const designOne = 12000;
 export const designSeries = 40000;
 
 // Надбавка к цене шкалы за свою фигурку
+export const customExtraSmall = 15;
+
 export const customExtras: PriceLine[] = [
-  { label: 'Размером с мишку, до 1,5 × 2 см', price: 15, plus: true },
+  { label: 'Размером с мишку, до 1,5 × 2 см', price: customExtraSmall, plus: true },
   { label: 'До 2 × 2,5 см', price: 25, plus: true },
   { label: 'До 3 × 3 см', price: 50, plus: true },
 ];
@@ -66,7 +68,7 @@ export const customExtras: PriceLine[] = [
 export const designAndDelivery: PriceLine[] = [
   { label: 'Дизайн одной фигурки, 2–3 правки', price: designOne },
   { label: `Дизайн серии из ${seriesSize} фигурок`, price: designSeries },
-  { label: `Заказ от ${formatCount(freeDesignFrom)}`, text: '1-й дизайн бесплатно' },
+  { label: `Заказ от ${formatCount(freeDesignFrom)}`, text: 'дизайн 1-й фигурки бесплатно' },
   { label: `Доставка партии до ${formatCount(bulkFrom - 1)}`, price: smallDelivery },
   { label: `Доставка партии от ${formatCount(bulkFrom)}`, text: 'бесплатно' },
 ];
@@ -82,6 +84,14 @@ export function formatLinePrice(line: PriceLine): string {
 }
 
 export const trialCost = trialQuantity * trial.one;
+
+// Пример первого заказа своей серии: партия от порога опта, фигурки размером с мишку
+export const seriesExample = (() => {
+  const quantity = bulkFrom;
+  const extra = customExtraSmall;
+  const print = quantity * (bulk.one + extra);
+  return { quantity, extra, print, total: print + designSeries };
+})();
 export const trialTotal = trialCost + smallDelivery;
 
 // Пример цены напитка для сравнения в блоке «Что вы получаете»

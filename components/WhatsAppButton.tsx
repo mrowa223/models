@@ -3,18 +3,17 @@ import styles from "./WhatsAppButton.module.css";
 
 type Props = {
   label?: string;
-  tone?: "accent" | "inverse" | "band";
+  tone?: "accent" | "inverse" | "band" | "outline";
   sticky?: boolean;
   // на телефоне эту кнопку заменяет закреплённая
   desktopOnly?: boolean;
-  className?: string;
   href?: string;
 };
 
-export default function WhatsAppButton({ label = "Написать в WhatsApp", tone = "accent", sticky, desktopOnly, className, href = whatsappUrl }: Props) {
+export default function WhatsAppButton({ label = "Написать в WhatsApp", tone = "accent", sticky, desktopOnly, href = whatsappUrl }: Props) {
   return (
     <a
-      className={`${styles.button} ${styles[tone]} ${sticky ? styles.sticky : ""} ${desktopOnly ? styles.desktopOnly : ""} ${className ?? ""}`}
+      className={`${styles.button} ${styles[tone]} ${sticky ? styles.sticky : ""} ${desktopOnly ? styles.desktopOnly : ""}`}
       href={href}
       target="_blank"
       rel="noopener"

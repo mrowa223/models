@@ -1,14 +1,14 @@
 import { bulk, drinkPriceExample, formatPrice, regular } from "@/data/prices";
 import styles from "./Value.module.css";
 
-const cupsPerFreeDrink = `${Math.floor(drinkPriceExample / regular.one)}–${Math.floor(
-  drinkPriceExample / bulk.one,
-)}`;
+const shareOfCheque = `${Math.round((bulk.one / drinkPriceExample) * 100)}–${Math.round(
+  (regular.one / drinkPriceExample) * 100,
+)}%`;
 
 const values = [
   {
     title: "Вас узнают по стакану",
-    text: "Гости запоминают вас как «кофейню с фигуркой на крышке». Это отличает вас от соседей, у которых стакан просто стакан.",
+    text: "Гости запоминают вас как «кофейню с фигуркой на крышке». Это отличает вас от соседей, у которых стакан — просто стакан.",
   },
   {
     title: "Радость для детей",
@@ -19,8 +19,8 @@ const values = [
     text: "Гости снимают стакан до первого глотка и отмечают вас в сторис. Делайте репосты, и живые фото появятся без съёмок.",
   },
   {
-    title: "Дешевле бесплатного кофе",
-    text: `Если напиток стоит ${formatPrice(drinkPriceExample)}, на его цену можно украсить ${cupsPerFreeDrink} стаканов. Фигурку получает каждый гость, а не один.`,
+    title: "Меньше десятой части чека",
+    text: `Фигурка стоит ${bulk.one}–${formatPrice(regular.one)}: это ${shareOfCheque} от чека в ${formatPrice(drinkPriceExample)}. А давать её можно только к части напитков.`,
   },
 ];
 
