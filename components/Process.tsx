@@ -1,10 +1,10 @@
-import { formatPrice, trial, trialQuantity } from "@/data/prices";
+import { formatNumber, formatPrice, trial, trialQuantity } from "@/data/prices";
 import styles from "./Process.module.css";
 
 const steps = [
   {
     title: "Заявка",
-    text: "Пишете в WhatsApp, какую фигурку хотите и примерный расход стаканов.",
+    text: "Пишете в WhatsApp: какую фигурку хотите, адрес точки и сколько стаканов в день.",
   },
   {
     title: "Модель",
@@ -12,11 +12,11 @@ const steps = [
   },
   {
     title: "Образец",
-    text: "Привожу фигурку на стакане, чтобы посмотреть вживую.",
+    text: "Работаю в Астане. Привожу фигурку на стакане, чтобы посмотреть вживую.",
   },
   {
     title: "Пробная партия",
-    text: `${trialQuantity}\u00a0фигурок по ${formatPrice(trial.one)} вместо ${formatPrice(trial.oldOne)}, готово за неделю.`,
+    text: `${formatNumber(trialQuantity)}\u00a0фигурок по ${formatPrice(trial.one)} вместо ${formatPrice(trial.oldOne)}, готово за неделю.`,
   },
   {
     title: "Проба на точке",

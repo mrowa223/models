@@ -1,6 +1,6 @@
 .cta {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--cta-bg);
+  color: var(--cta-ink);
   border-radius: var(--radius-lg);
   padding: 32px;
 }

@@ -44,6 +44,26 @@
   color: var(--band-muted);
 }
 
+.offers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.offers a {
+  color: var(--band-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-variant-numeric: tabular-nums;
+}
+
+.offers a:focus-visible {
+  outline: 2px solid var(--band-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 @media (max-width: 460px) {
   .hero {
     padding: 20px;

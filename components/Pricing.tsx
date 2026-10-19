@@ -9,6 +9,9 @@ import {
   freeDesignFrom,
   seriesExample,
   bulk,
+  bulkArgument,
+  bulkFrom,
+  formatNumber,
   keepNumbers,
   scale,
   seriesSize,
@@ -100,32 +103,39 @@ export default function Pricing() {
         </tbody>
       </table>
 
-      <div className={styles.offers}>
+      <p className={styles.argument}>
+        {formatCount(bulkFrom)} обойдутся дешевле, чем {formatCount(bulkArgument.smallQuantity)}:{" "}
+        {formatPrice(bulkArgument.big)} против {formatPrice(bulkArgument.small)} — от{" "}
+        {formatCount(bulkFrom)} доставка бесплатна.
+      </p>
+
+      <div className={styles.offers} id="offers">
         <div className={styles.offer}>
-          <span className={styles.offerTag}>Начать</span>
+          <span className="eyebrow">Начать</span>
           <h3>Проба готовой фигурки</h3>
           <p className={styles.offerPrice}>{formatPrice(trialTotal)}</p>
           <p className="muted">
-            {trialQuantity}&nbsp;мишек или чашечек ({formatPrice(trialCost)}) и доставка (
+            {formatNumber(trialQuantity)}&nbsp;мишек или чашечек ({formatPrice(trialCost)}) и доставка (
             {formatPrice(smallDelivery)}). Проверяете, как гости принимают фигурку.
           </p>
           <WhatsAppButton label="Заказать пробу" />
         </div>
         <div className={`${styles.offer} ${styles.offerAccent}`}>
-          <span className={styles.offerTag}>Под ваш бренд</span>
+          <span className="eyebrow">Под ваш бренд</span>
           <h3>Своя серия фигурок</h3>
           <p className={styles.offerPrice}>
-            {formatPrice(designSeries)} <span>за дизайн {seriesSize} фигурок</span>
-          </p>
-          <p className="muted">
-            Печать — по шкале выше с надбавкой за свою фигурку. При заказе от{" "}
-            {formatCount(freeDesignFrom)} дизайн первой фигурки бесплатно.
+            от {formatPrice(seriesExample.total)}{" "}
+            <span>
+              первая серия: {formatCount(seriesExample.quantity)} и дизайн {seriesSize} фигурок
+            </span>
           </p>
           <p className={styles.example}>
-            Пример: {seriesExample.quantity}&nbsp;фигурок размером с мишку — (
-            {formatPrice(bulk.one)} + {formatPrice(seriesExample.extra)}) ×{" "}
-            {formatCount(seriesExample.quantity)} = {formatPrice(seriesExample.print)}, с дизайном
-            серии {formatPrice(seriesExample.total)}. Доставка бесплатно.
+            Печать: ({formatPrice(bulk.one)} + {formatPrice(seriesExample.extra)} за свою фигурку)
+            × {formatCount(seriesExample.quantity)} = {formatPrice(seriesExample.print)}. Дизайн
+            серии — {formatPrice(designSeries)}. Доставка бесплатно.
+          </p>
+          <p className="muted">
+            При заказе от {formatCount(freeDesignFrom)} дизайн первой фигурки бесплатно.
           </p>
           <WhatsAppButton label="Обсудить свою серию" href={whatsappSeriesUrl} />
         </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import hero from "@/assets/img/hero.webp";
+import { formatPrice, seriesExample, trialTotal } from "@/data/prices";
 import WhatsAppButton from "./WhatsAppButton";
 import styles from "./Hero.module.css";
 
@@ -14,7 +15,7 @@ export default function Hero() {
     <section className={`section split ${styles.hero}`}>
       <div className="stack">
         <span className={`eyebrow ${styles.eyebrow}`}>Идея для вашей кофейни</span>
-        <h1>Маленькая 3Д фигурка на каждом стакане</h1>
+        <h1>Маленькая 3Д фигурка на крышке вашего стакана</h1>
         <p className={styles.lead}>
           Бариста приклеивает фигурку на крышку, гость получает её вместе с напитком и уносит с
           собой. Так обычный стакан становится вашим узнаваемым стаканом, а гости собирают всю серию фигурок.
@@ -27,6 +28,10 @@ export default function Hero() {
             </li>
           ))}
         </ul>
+        <nav className={styles.offers} aria-label="Предложения">
+          <a href="#offers">Проба — {formatPrice(trialTotal)} →</a>
+          <a href="#offers">Своя серия — от {formatPrice(seriesExample.total)} →</a>
+        </nav>
         <WhatsAppButton tone="band" desktopOnly />
       </div>
       <Image

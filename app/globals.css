@@ -9,6 +9,8 @@
   --accent-soft: #e2efeb;
   /* текст на --accent: белый в светлой теме, тёмный в тёмной (иначе контраст < 4,5:1) */
   --on-accent: #ffffff;
+  --cta-bg: var(--accent);
+  --cta-ink: #ffffff;
   --band: #4a2c25;
   --band-ink: #f7ede8;
   --band-muted: #dcc6bc;
@@ -31,6 +33,8 @@
     --accent: #5fbfa9;
     --accent-soft: #1f3631;
     --on-accent: #10231f;
+    --cta-bg: #173a33;
+    --cta-ink: #f3e9e4;
     color-scheme: dark;
   }
 }
@@ -178,6 +182,7 @@ dl {
   margin: -1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }

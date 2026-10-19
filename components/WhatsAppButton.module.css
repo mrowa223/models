@@ -30,14 +30,22 @@
 
 /* на зелёном фоне финального блока */
 .inverse {
-  background: var(--on-accent);
-  color: var(--accent);
+  background: var(--cta-ink);
+  color: var(--cta-bg);
 }
 
 /* вторая кнопка на зелёном финальном блоке */
 .outline {
-  border: 2px solid var(--on-accent);
-  color: var(--on-accent);
+  border: 2px solid var(--cta-ink);
+  color: var(--cta-ink);
+}
+
+/* на зелёном блоке кольцо фокуса — цветом текста блока */
+.inverse:focus-visible,
+.outline:focus-visible {
+  box-shadow: none;
+  outline: 3px solid var(--cta-ink);
+  outline-offset: 3px;
 }
 
 /* на коричневом первом экране */

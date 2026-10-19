@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   openGraph: {
     title: "Фигурки на крышках стаканов",
-    description: "Маленькая 3Д фигурка на каждом стакане вашей кофейни.",
+    description: "Маленькая 3Д фигурка на крышке вашего стакана.",
     locale: "ru_RU",
     type: "website",
   },

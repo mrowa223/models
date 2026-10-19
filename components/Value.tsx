@@ -1,9 +1,16 @@
-import { bulk, drinkPriceExample, formatPrice, regular } from "@/data/prices";
+import {
+  bulk,
+  customExtraLarge,
+  drinkPriceExample,
+  formatNumber,
+  formatPrice,
+  regular,
+} from "@/data/prices";
 import styles from "./Value.module.css";
 
-const shareOfCheque = `${Math.round((bulk.one / drinkPriceExample) * 100)}–${Math.round(
-  (regular.one / drinkPriceExample) * 100,
-)}%`;
+const percentOfCheque = (price: number) => Math.round((price / drinkPriceExample) * 100);
+const shareOfCheque = `${percentOfCheque(bulk.one)}–${percentOfCheque(regular.one)}%`;
+const customShare = `${percentOfCheque(regular.one + customExtraLarge)}%`;
 
 const values = [
   {
@@ -19,8 +26,8 @@ const values = [
     text: "Гости снимают стакан до первого глотка и отмечают вас в сторис. Делайте репосты, и живые фото появятся без съёмок.",
   },
   {
-    title: "Меньше десятой части чека",
-    text: `Фигурка стоит ${bulk.one}–${formatPrice(regular.one)}: это ${shareOfCheque} от чека в ${formatPrice(drinkPriceExample)}. А давать её можно только к части напитков.`,
+    title: "Небольшая доля чека",
+    text: `Готовая фигурка стоит ${formatNumber(bulk.one)}–${formatPrice(regular.one)}: это ${shareOfCheque} от чека в ${formatPrice(drinkPriceExample)}, своя — до ${customShare}. А давать её можно только к части напитков.`,
   },
 ];
 

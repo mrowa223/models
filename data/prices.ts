@@ -26,6 +26,10 @@ export function formatPrice(value: number): string {
   return `${numberFormat.format(value)}${NBSP}тг`;
 }
 
+export function formatNumber(value: number): string {
+  return numberFormat.format(value);
+}
+
 export function formatCount(value: number): string {
   return `${numberFormat.format(value)}${NBSP}шт`;
 }
@@ -59,10 +63,12 @@ export const designSeries = 40000;
 // Надбавка к цене шкалы за свою фигурку
 export const customExtraSmall = 15;
 
+export const customExtraLarge = 50;
+
 export const customExtras: PriceLine[] = [
   { label: 'Размером с мишку, до 1,5 × 2 см', price: customExtraSmall, plus: true },
   { label: 'До 2 × 2,5 см', price: 25, plus: true },
-  { label: 'До 3 × 3 см', price: 50, plus: true },
+  { label: 'До 3 × 3 см', price: customExtraLarge, plus: true },
 ];
 
 export const designAndDelivery: PriceLine[] = [
@@ -84,6 +90,14 @@ export function formatLinePrice(line: PriceLine): string {
 }
 
 export const trialCost = trialQuantity * trial.one;
+
+// Довод про порог опта: партия чуть меньше порога выходит дороже самого порога
+export const bulkArgument = (() => {
+  const smallQuantity = bulkFrom - 100;
+  const small = smallQuantity * regular.one + smallDelivery;
+  const big = bulkFrom * bulk.one;
+  return { smallQuantity, small, big };
+})();
 
 // Пример первого заказа своей серии: партия от порога опта, фигурки размером с мишку
 export const seriesExample = (() => {
