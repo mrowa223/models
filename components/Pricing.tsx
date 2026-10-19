@@ -5,8 +5,10 @@ import {
   formatPrice,
   keepNumbers,
   scale,
+  smallDelivery,
+  trialCost,
   trialQuantity,
-  trialRow,
+  trialTotal,
   type PriceLine,
 } from "@/data/prices";
 import WhatsAppButton from "./WhatsAppButton";
@@ -15,7 +17,10 @@ import styles from "./Pricing.module.css";
 const terms = [
   { term: "Материал", value: "Пластик, в один или несколько цветов" },
   { term: "Крепление", value: "Липучка на крышку стакана" },
-  { term: "Пробная партия", value: `${trialQuantity} фигурок, готово за неделю` },
+  {
+    term: "Пробная партия",
+    value: `${trialQuantity} фигурок, готово за неделю. ${formatPrice(trialCost)} + доставка ${formatPrice(smallDelivery)} = ${formatPrice(trialTotal)}`,
+  },
   {
     term: "Срок большего заказа",
     value: "Зависит от количества и размера фигурки, назову точно под ваш объём",
@@ -24,15 +29,23 @@ const terms = [
 
 const scenarios = [
   "К части меню: детские напитки, авторский напиток или сезонное предложение.",
-  "За коллекцию: гость получает фигурку с напитком, а за собранную серию — напиток в подарок.",
+  "За серию: гость получает фигурку с напитком, а за собранную серию — напиток в подарок.",
   "Как добавку к напитку: гость доплачивает за фигурку, и она приносит вам доход, а не расход.",
 ];
 
 function Price({ value, old }: { value: number; old?: number }) {
   return (
     <>
-      {old !== undefined && <s className={styles.old}>{formatPrice(old)}</s>}
-      <span>{formatPrice(value)}</span>
+      {old !== undefined && (
+        <s className={styles.old}>
+          <span className="sr-only">Было </span>
+          {formatPrice(old)}
+        </s>
+      )}
+      <span>
+        {old !== undefined && <span className="sr-only">Сейчас </span>}
+        {formatPrice(value)}
+      </span>
     </>
   );
 }
@@ -71,7 +84,7 @@ export default function Pricing() {
             <tr key={row.label} className={row.highlight ? styles.highlight : undefined}>
               <th scope="row">
                 {keepNumbers(row.label)}
-                {row.note && <span className={styles.rowNote}>{row.note}</span>}
+                {row.note && <span className={styles.rowNote}>{keepNumbers(row.note)}</span>}
               </th>
               <td>
                 <Price value={row.one} old={row.oldOne} />
@@ -95,8 +108,6 @@ export default function Pricing() {
         <PriceCard title="Дизайн и доставка" lines={designAndDelivery} />
       </div>
 
-      <WhatsAppButton label={`Заказать пробу за ${formatPrice(trialQuantity * trialRow.one)}`} />
-
       <h3>Условия</h3>
       <dl className={styles.terms}>
         {terms.map((item) => (
@@ -106,6 +117,11 @@ export default function Pricing() {
           </div>
         ))}
       </dl>
+
+      <WhatsAppButton
+        label={`Заказать пробу за ${formatPrice(trialTotal)} с доставкой`}
+        className={styles.cta}
+      />
     </section>
   );
 }

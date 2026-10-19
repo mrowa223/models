@@ -1,11 +1,4 @@
-import {
-  bestRow,
-  drinkPriceExample,
-  formatPrice,
-  regularRow,
-  trialQuantity,
-  trialRow,
-} from "@/data/prices";
+import { bestRow, drinkPriceExample, formatPrice, regularRow } from "@/data/prices";
 import styles from "./Value.module.css";
 
 const cupsPerFreeDrink = `${Math.floor(drinkPriceExample / regularRow.one)}–${Math.floor(
@@ -14,8 +7,8 @@ const cupsPerFreeDrink = `${Math.floor(drinkPriceExample / regularRow.one)}–${
 
 const values = [
   {
-    title: "Подарок без повода",
-    text: "Гость пришёл за кофе, а получил ещё и маленькую вещь, которую не ждал. Этот момент запоминается вместе с вашей кофейней.",
+    title: "Вас узнают по стакану",
+    text: "Гости запоминают вас как «кофейню с фигуркой на крышке». Это отличает вас от соседей, у которых стакан просто стакан.",
   },
   {
     title: "Радость для детей",
@@ -24,14 +17,6 @@ const values = [
   {
     title: "Контент для вашего аккаунта",
     text: "Гости снимают стакан до первого глотка и отмечают вас в сторис. Делайте репосты, и живые фото появятся без съёмок.",
-  },
-  {
-    title: "Проверка без риска",
-    text: `Пробная партия стоит ${formatPrice(trialQuantity * trialRow.one)}. Запускаете на одной точке и по итогам решаете, продолжать ли.`,
-  },
-  {
-    title: "Вас узнают по стакану",
-    text: "Гости запоминают вас как «кофейню с фигуркой на крышке». Это отличает вас от соседей, у которых стакан просто стакан.",
   },
   {
     title: "Дешевле бесплатного кофе",
@@ -52,10 +37,6 @@ export default function Value() {
           </li>
         ))}
       </ul>
-      <p className={styles.summary}>
-        Фигурка продолжает работать, когда кофе уже выпит: она остаётся у гостя на столе и
-        возвращает его к вам.
-      </p>
     </section>
   );
 }

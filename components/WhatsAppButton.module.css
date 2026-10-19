@@ -15,18 +15,17 @@
   opacity: 0.9;
 }
 
+/* Двойное кольцо: видно и на светлом фоне, и на зелёном блоке */
 .button:focus-visible {
-  outline: 3px solid currentColor;
-  outline-offset: 3px;
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 0 6px var(--ink);
 }
 
 .accent {
   background: var(--accent);
   color: var(--on-accent);
-}
-
-.accent:focus-visible {
-  outline-color: var(--accent);
 }
 
 /* на зелёном фоне финального блока */
@@ -35,18 +34,10 @@
   color: var(--accent);
 }
 
-.inverse:focus-visible {
-  outline-color: var(--on-accent);
-}
-
 /* на коричневом первом экране */
 .band {
   background: var(--band-accent);
   color: var(--band);
-}
-
-.band:focus-visible {
-  outline-color: var(--band-accent);
 }
 
 /* Закреплённая кнопка видна только на телефоне */
@@ -64,6 +55,13 @@
     bottom: calc(12px + env(safe-area-inset-bottom, 0px));
     width: auto;
     box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+  }
+
+  .sticky:focus-visible {
+    box-shadow:
+      0 0 0 3px var(--bg),
+      0 0 0 6px var(--ink),
+      0 6px 20px rgb(0 0 0 / 0.25);
   }
 }
 

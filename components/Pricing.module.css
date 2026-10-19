@@ -150,6 +150,10 @@
   margin: 0;
 }
 
+.cta {
+  margin-top: 4px;
+}
+
 @media (max-width: 720px) {
   .cards {
     grid-template-columns: 1fr;
@@ -168,5 +172,19 @@
 
   .terms {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 460px) {
+  .lines div {
+    flex-wrap: wrap;
+  }
+
+  .lines div::after {
+    display: none;
+  }
+
+  .lines dd {
+    margin-left: auto;
   }
 }

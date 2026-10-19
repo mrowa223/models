@@ -17,9 +17,8 @@ const manrope = Manrope({
 });
 
 // На Vercel адрес продакшена приходит из окружения — нужен для абсолютных ссылок OG-картинки
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3000";
+const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+const siteUrl = vercelHost ? `https://${vercelHost}` : "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

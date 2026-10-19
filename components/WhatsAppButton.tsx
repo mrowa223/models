@@ -7,17 +7,19 @@ type Props = {
   sticky?: boolean;
   // на телефоне эту кнопку заменяет закреплённая
   desktopOnly?: boolean;
+  className?: string;
 };
 
-export default function WhatsAppButton({ label = "Написать в WhatsApp", tone = "accent", sticky, desktopOnly }: Props) {
+export default function WhatsAppButton({ label = "Написать в WhatsApp", tone = "accent", sticky, desktopOnly, className }: Props) {
   return (
     <a
-      className={`${styles.button} ${styles[tone]} ${sticky ? styles.sticky : ""} ${desktopOnly ? styles.desktopOnly : ""}`}
+      className={`${styles.button} ${styles[tone]} ${sticky ? styles.sticky : ""} ${desktopOnly ? styles.desktopOnly : ""} ${className ?? ""}`}
       href={whatsappUrl}
       target="_blank"
       rel="noopener"
     >
       {label}
+      <span className="sr-only"> (откроется WhatsApp)</span>
     </a>
   );
 }

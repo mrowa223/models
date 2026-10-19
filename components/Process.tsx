@@ -1,4 +1,4 @@
-import { formatPrice, trialQuantity, trialRow } from "@/data/prices";
+import { formatPrice, trial, trialQuantity, trialTotal } from "@/data/prices";
 import styles from "./Process.module.css";
 
 const steps = [
@@ -16,11 +16,11 @@ const steps = [
   },
   {
     title: "Пробная партия",
-    text: `${trialQuantity} фигурок по ${formatPrice(trialRow.one)} вместо ${formatPrice(trialRow.oldOne ?? trialRow.one)}, готово за неделю.`,
+    text: `${trialQuantity} фигурок по ${formatPrice(trial.one)} вместо ${formatPrice(trial.oldOne)}, готово за неделю. С доставкой — ${formatPrice(trialTotal)}.`,
   },
   {
     title: "Проба на точке",
-    text: "Смотрите, успевают ли бариста и сколько гостей забирают фигурку с собой.",
+    text: "Неделю на одной точке. Считаете, сколько гостей забрали фигурку, спросили о ней и вернулись, и успевают ли бариста.",
   },
   {
     title: "Регулярные поставки",

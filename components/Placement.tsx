@@ -6,7 +6,6 @@ import styles from "./Placement.module.css";
 const points = [
   "Фигурка стоит на крышке стакана и держится на липучке.",
   "Бариста приклеивает её за секунду, это не замедляет выдачу.",
-  "Она стоит в стороне от отверстия для питья и не мешает пить.",
   "Гость легко снимает фигурку и забирает с собой.",
 ];
 
@@ -19,7 +18,7 @@ export default function Placement() {
   return (
     <section className="section split">
       <div className="stack">
-        <span className="eyebrow">Где располагается</span>
+        <span className="eyebrow">Как крепится</span>
         <h2>На крышке, в стороне от отверстия для питья</h2>
         <ul className="dots">
           {points.map((point) => (
