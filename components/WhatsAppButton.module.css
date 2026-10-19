@@ -40,7 +40,7 @@
   color: var(--cta-ink);
 }
 
-/* на зелёном блоке кольцо фокуса — цветом текста блока */
+/* на зелёном блоке кольцо фокуса - цветом текста блока */
 .inverse:focus-visible,
 .outline:focus-visible {
   box-shadow: none;

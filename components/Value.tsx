@@ -8,14 +8,15 @@ import {
 } from "@/data/prices";
 import styles from "./Value.module.css";
 
-const percentOfCheque = (price: number) => Math.round((price / drinkPriceExample) * 100);
+const percentOfCheque = (price: number) =>
+  Math.round((price / drinkPriceExample) * 100);
 const shareOfCheque = `${percentOfCheque(bulk.one)}–${percentOfCheque(regular.one)}%`;
 const customShare = `${percentOfCheque(regular.one + customExtraLarge)}%`;
 
 const values = [
   {
     title: "Вас узнают по стакану",
-    text: "Гости запоминают вас как «кофейню с фигуркой на крышке». Это отличает вас от соседей, у которых стакан — просто стакан.",
+    text: "Гости запоминают вас как «кофейню с фигуркой на крышке». Это отличает вас от соседей, у которых стакан - просто стакан.",
   },
   {
     title: "Радость для детей",
@@ -27,7 +28,7 @@ const values = [
   },
   {
     title: "Небольшая доля чека",
-    text: `Готовая фигурка стоит ${formatNumber(bulk.one)}–${formatPrice(regular.one)}: это ${shareOfCheque} от чека в ${formatPrice(drinkPriceExample)}, своя — до ${customShare}.`,
+    text: `Готовая фигурка стоит ${formatNumber(bulk.one)}–${formatPrice(regular.one)}: это ${shareOfCheque} от чека в ${formatPrice(drinkPriceExample)}, своя - до ${customShare}.`,
   },
 ];
 

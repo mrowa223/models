@@ -11,15 +11,15 @@ export type PriceLine =
   | { label: string; price: number; plus?: boolean }
   | { label: string; text: string };
 
-// Пороги и размеры — используются в нескольких секциях
+// Пороги и размеры - используются в нескольких секциях
 export const trialQuantity = 100;
 export const seriesSize = 4;
 export const bulkFrom = 500;
 export const bulkMax = 1500;
 export const freeDesignFrom = 1000;
 
-const NBSP = ' ';
-const numberFormat = new Intl.NumberFormat('ru-RU');
+const NBSP = " ";
+const numberFormat = new Intl.NumberFormat("ru-RU");
 
 // «150 тг» с неразрывным пробелом, тысячи через пробел
 export function formatPrice(value: number): string {
@@ -35,7 +35,7 @@ export function formatCount(value: number): string {
 }
 
 export const trial: ScaleRow & { oldOne: number } = {
-  label: 'Пробная партия',
+  label: "Пробная партия",
   note: `${formatCount(trialQuantity)}, скидка на первый заказ`,
   one: 110,
   oldOne: 130,
@@ -49,7 +49,7 @@ export const regular: ScaleRow = {
 
 export const bulk: ScaleRow = {
   label: `${numberFormat.format(bulkFrom)}–${formatCount(bulkMax)}`,
-  note: 'за одну партию',
+  note: "за одну партию",
   one: 105,
   highlight: true,
 };
@@ -66,17 +66,27 @@ export const customExtraSmall = 15;
 export const customExtraLarge = 50;
 
 export const customExtras: PriceLine[] = [
-  { label: 'Размером с мишку, до 1,5 × 2 см', price: customExtraSmall, plus: true },
-  { label: 'До 2 × 2,5 см', price: 25, plus: true },
-  { label: 'До 3 × 3 см', price: customExtraLarge, plus: true },
+  {
+    label: "Размером с мишку, до 1,5 × 2 см",
+    price: customExtraSmall,
+    plus: true,
+  },
+  { label: "До 2 × 2,5 см", price: 25, plus: true },
+  { label: "До 3 × 3 см", price: customExtraLarge, plus: true },
 ];
 
 export const designAndDelivery: PriceLine[] = [
-  { label: 'Дизайн одной фигурки, 2–3 правки', price: designOne },
+  { label: "Дизайн одной фигурки, 2–3 правки", price: designOne },
   { label: `Дизайн серии из ${seriesSize} фигурок`, price: designSeries },
-  { label: `Заказ от ${formatCount(freeDesignFrom)}`, text: 'дизайн 1-й фигурки бесплатно' },
-  { label: `Доставка партии до ${formatCount(bulkFrom - 1)}`, price: smallDelivery },
-  { label: `Доставка партии от ${formatCount(bulkFrom)}`, text: 'бесплатно' },
+  {
+    label: `Заказ от ${formatCount(freeDesignFrom)}`,
+    text: "дизайн 1-й фигурки бесплатно",
+  },
+  {
+    label: `Доставка партии до ${formatCount(bulkFrom - 1)}`,
+    price: smallDelivery,
+  },
+  { label: `Доставка партии от ${formatCount(bulkFrom)}`, text: "бесплатно" },
 ];
 
 // Цифры не отрываются от соседних цифр и единиц: «2 000 шт» не переносится посередине
@@ -85,8 +95,8 @@ export function keepNumbers(text: string): string {
 }
 
 export function formatLinePrice(line: PriceLine): string {
-  if ('text' in line) return line.text;
-  return `${line.plus ? '+' : ''}${formatPrice(line.price)}`;
+  if ("text" in line) return line.text;
+  return `${line.plus ? "+" : ""}${formatPrice(line.price)}`;
 }
 
 export const trialCost = trialQuantity * trial.one;

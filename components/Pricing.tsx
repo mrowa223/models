@@ -30,13 +30,14 @@ const terms = [
   { term: "Пробная партия", value: "Готова за неделю" },
   {
     term: "Срок большего заказа",
-    value: "Зависит от количества и размера фигурки, назову точно под ваш объём",
+    value:
+      "Зависит от количества и размера фигурки, назову точно под ваш объём",
   },
 ];
 
 const scenarios = [
   "Только к части меню: детские напитки, авторский напиток или сезонное предложение.",
-  "За серию: гость получает фигурку с напитком, а за собранную серию — напиток в подарок.",
+  "За серию: гость получает фигурку с напитком, а за собранную серию - напиток в подарок.",
   "Как добавку к напитку: гость доплачивает за фигурку, и она приносит вам доход, а не расход.",
 ];
 
@@ -57,7 +58,15 @@ function Price({ value, old }: { value: number; old?: number }) {
   );
 }
 
-function PriceCard({ title, note, lines }: { title: string; note?: string; lines: PriceLine[] }) {
+function PriceCard({
+  title,
+  note,
+  lines,
+}: {
+  title: string;
+  note?: string;
+  lines: PriceLine[];
+}) {
   return (
     <div className={styles.card}>
       <h3>{title}</h3>
@@ -81,7 +90,9 @@ export default function Pricing() {
       <h2>Сколько стоит фигурка</h2>
 
       <table className={styles.table}>
-        <caption className="sr-only">Цена одной фигурки в зависимости от объёма</caption>
+        <caption className="sr-only">
+          Цена одной фигурки в зависимости от объёма
+        </caption>
         <thead>
           <tr>
             <th scope="col">Объём</th>
@@ -90,10 +101,17 @@ export default function Pricing() {
         </thead>
         <tbody>
           {scale.map((row) => (
-            <tr key={row.label} className={row.highlight ? styles.highlight : undefined}>
+            <tr
+              key={row.label}
+              className={row.highlight ? styles.highlight : undefined}
+            >
               <th scope="row">
                 {keepNumbers(row.label)}
-                {row.note && <span className={styles.rowNote}>{keepNumbers(row.note)}</span>}
+                {row.note && (
+                  <span className={styles.rowNote}>
+                    {keepNumbers(row.note)}
+                  </span>
+                )}
               </th>
               <td>
                 <Price value={row.one} old={row.oldOne} />
@@ -104,8 +122,10 @@ export default function Pricing() {
       </table>
 
       <p className={styles.argument}>
-        {formatCount(bulkFrom)} обойдутся дешевле, чем {formatCount(bulkArgument.smallQuantity)}:{" "}
-        {formatPrice(bulkArgument.big)} против {formatPrice(bulkArgument.small)} с доставкой.
+        {formatCount(bulkFrom)} обойдутся дешевле, чем{" "}
+        {formatCount(bulkArgument.smallQuantity)}:{" "}
+        {formatPrice(bulkArgument.big)} против {formatPrice(bulkArgument.small)}{" "}
+        с доставкой.
       </p>
 
       <div className={styles.offers}>
@@ -114,8 +134,9 @@ export default function Pricing() {
           <h3>Проба готовой фигурки</h3>
           <p className={styles.offerPrice}>{formatPrice(trialTotal)}</p>
           <p className="muted">
-            {formatNumber(trialQuantity)}&nbsp;мишек или чашечек ({formatPrice(trialCost)}) и доставка (
-            {formatPrice(smallDelivery)}). Проверяете, как гости принимают фигурку.
+            {formatNumber(trialQuantity)}&nbsp;мишек или чашечек (
+            {formatPrice(trialCost)}) и доставка ({formatPrice(smallDelivery)}).
+            Проверяете, как гости принимают фигурку.
           </p>
           <WhatsAppButton label="Заказать пробу" />
         </div>
@@ -125,18 +146,25 @@ export default function Pricing() {
           <p className={styles.offerPrice}>
             от {formatPrice(seriesExample.total)}{" "}
             <span>
-              первая серия: {formatCount(seriesExample.quantity)} и дизайн {seriesSize} фигурок
+              первая серия: {formatCount(seriesExample.quantity)} и дизайн{" "}
+              {seriesSize} фигурок
             </span>
           </p>
           <p className={styles.example}>
-            Печать: ({formatPrice(bulk.one)} + {formatPrice(seriesExample.extra)} за свою фигурку)
-            × {formatCount(seriesExample.quantity)} = {formatPrice(seriesExample.print)}. Дизайн
-            серии — {formatPrice(designSeries)}. Доставка бесплатно.
+            Печать: ({formatPrice(bulk.one)} +{" "}
+            {formatPrice(seriesExample.extra)} за свою фигурку) ×{" "}
+            {formatCount(seriesExample.quantity)} ={" "}
+            {formatPrice(seriesExample.print)}. Дизайн серии -{" "}
+            {formatPrice(designSeries)}. Доставка бесплатно.
           </p>
           <p className="muted">
-            При заказе от {formatCount(freeDesignFrom)} дизайн первой фигурки бесплатно.
+            При заказе от {formatCount(freeDesignFrom)} дизайн первой фигурки
+            бесплатно.
           </p>
-          <WhatsAppButton label="Обсудить свою серию" href={whatsappSeriesUrl} />
+          <WhatsAppButton
+            label="Обсудить свою серию"
+            href={whatsappSeriesUrl}
+          />
         </div>
       </div>
 

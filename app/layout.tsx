@@ -16,8 +16,9 @@ const manrope = Manrope({
   display: "swap",
 });
 
-// На Vercel адрес продакшена приходит из окружения — нужен для абсолютных ссылок OG-картинки
-const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+// На Vercel адрес продакшена приходит из окружения - нужен для абсолютных ссылок OG-картинки
+const vercelHost =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
 const siteUrl = vercelHost ? `https://${vercelHost}` : "http://localhost:3000";
 
 export const metadata: Metadata = {
@@ -44,7 +45,11 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="ru" className={`${unbounded.variable} ${manrope.variable}`}>
       <body>{children}</body>
