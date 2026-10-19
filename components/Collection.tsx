@@ -6,6 +6,7 @@ const points = [
   "С напитком гость получает одну фигурку серии и хочет собрать остальные.",
   "Собрал всю серию — показывает фигурки на кассе и получает напиток в подарок. Карты лояльности и приложение не нужны.",
   "Серию меняете когда хотите: к Новому году, весне или в цветах вашего бренда.",
+  "Серию из своих фигурок можно заказать сразу, цена — в блоке ниже.",
 ];
 
 const slots = Array.from({ length: seriesSize }, (_, i) => i + 1);
@@ -24,8 +25,11 @@ export default function Collection() {
         <ol className={styles.series} aria-label={`Серия из ${seriesSize} фигурок`}>
           {slots.map((n) => (
             <li key={n} className={n === seriesSize ? styles.reward : undefined}>
-              <span className={styles.num}>
+              <span className={styles.num} aria-hidden="true">
                 {n}/{seriesSize}
+              </span>
+              <span className="sr-only">
+                Фигурка {n} из {seriesSize}.
               </span>
               <span>{n === seriesSize ? "Серия собрана — напиток в подарок" : "Фигурка серии"}</span>
             </li>

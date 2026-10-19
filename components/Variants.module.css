@@ -48,6 +48,29 @@
   font-size: 18px;
 }
 
+.customTile {
+  grid-auto-flow: column;
+  gap: 12px;
+}
+
+.logo {
+  padding: 10px 12px;
+  border: 2px dashed var(--accent);
+  border-radius: 10px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.arrow {
+  font-size: 22px;
+}
+
+.figure {
+  width: 64px;
+  height: 72px;
+}
+
 .tag {
   display: inline-block;
   font-size: 12px;

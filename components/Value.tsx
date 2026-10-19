@@ -1,8 +1,8 @@
-import { bestRow, drinkPriceExample, formatPrice, regularRow } from "@/data/prices";
+import { bulk, drinkPriceExample, formatPrice, regular } from "@/data/prices";
 import styles from "./Value.module.css";
 
-const cupsPerFreeDrink = `${Math.floor(drinkPriceExample / regularRow.one)}–${Math.floor(
-  drinkPriceExample / bestRow.one,
+const cupsPerFreeDrink = `${Math.floor(drinkPriceExample / regular.one)}–${Math.floor(
+  drinkPriceExample / bulk.one,
 )}`;
 
 const values = [

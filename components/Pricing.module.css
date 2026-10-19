@@ -78,6 +78,89 @@
   background: var(--accent-soft);
 }
 
+.offers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.offer {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.offer > :last-child {
+  margin-top: 6px;
+}
+
+.offerAccent {
+  border: 2px solid var(--accent);
+}
+
+.offerTag {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.offerPrice {
+  font-family: var(--display);
+  font-size: 28px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.offerPrice span {
+  font-family: var(--body);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.scenarioList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.scenarioList li {
+  border-top: 2px solid var(--accent);
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.details summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-weight: 700;
+  list-style-position: inside;
+}
+
+.details summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+.detailsBody {
+  display: grid;
+  gap: 20px;
+  padding: 0 20px 20px;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -150,12 +233,10 @@
   margin: 0;
 }
 
-.cta {
-  margin-top: 4px;
-}
-
 @media (max-width: 720px) {
-  .cards {
+  .cards,
+  .offers,
+  .scenarioList {
     grid-template-columns: 1fr;
   }
 }

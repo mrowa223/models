@@ -6,7 +6,7 @@ import styles from "./Hero.module.css";
 const facts = [
   { value: "1,5 × 2 см", label: "размер мишки" },
   { value: "≈ 1,5 см", label: "размер чашечки" },
-  { value: "Своя", label: "фигурка под ваш бренд" },
+  { value: "Своя", label: "под ваш бренд" },
 ];
 
 export default function Hero() {

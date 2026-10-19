@@ -8,13 +8,14 @@ type Props = {
   // на телефоне эту кнопку заменяет закреплённая
   desktopOnly?: boolean;
   className?: string;
+  href?: string;
 };
 
-export default function WhatsAppButton({ label = "Написать в WhatsApp", tone = "accent", sticky, desktopOnly, className }: Props) {
+export default function WhatsAppButton({ label = "Написать в WhatsApp", tone = "accent", sticky, desktopOnly, className, href = whatsappUrl }: Props) {
   return (
     <a
       className={`${styles.button} ${styles[tone]} ${sticky ? styles.sticky : ""} ${desktopOnly ? styles.desktopOnly : ""} ${className ?? ""}`}
-      href={whatsappUrl}
+      href={href}
       target="_blank"
       rel="noopener"
     >

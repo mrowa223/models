@@ -16,9 +16,10 @@
 
 .facts {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 10px;
 }
 
 .facts li {
@@ -46,5 +47,24 @@
 @media (max-width: 460px) {
   .hero {
     padding: 20px;
+  }
+
+  .facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .facts li {
+    padding: 8px 10px;
+  }
+
+  .facts b {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .facts span {
+    font-size: 11px;
+    line-height: 1.3;
   }
 }

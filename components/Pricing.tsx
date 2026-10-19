@@ -1,10 +1,15 @@
+import { whatsappSeriesUrl } from "@/data/contacts";
 import {
   customExtras,
   designAndDelivery,
+  designSeries,
+  formatCount,
   formatLinePrice,
   formatPrice,
+  freeDesignFrom,
   keepNumbers,
   scale,
+  seriesSize,
   smallDelivery,
   trialCost,
   trialQuantity,
@@ -17,10 +22,7 @@ import styles from "./Pricing.module.css";
 const terms = [
   { term: "Материал", value: "Пластик, в один или несколько цветов" },
   { term: "Крепление", value: "Липучка на крышку стакана" },
-  {
-    term: "Пробная партия",
-    value: `${trialQuantity} фигурок, готово за неделю. ${formatPrice(trialCost)} + доставка ${formatPrice(smallDelivery)} = ${formatPrice(trialTotal)}`,
-  },
+  { term: "Пробная партия", value: "Готова за неделю" },
   {
     term: "Срок большего заказа",
     value: "Зависит от количества и размера фигурки, назову точно под ваш объём",
@@ -28,7 +30,7 @@ const terms = [
 ];
 
 const scenarios = [
-  "К части меню: детские напитки, авторский напиток или сезонное предложение.",
+  "Только к части меню: детские напитки, авторский напиток или сезонное предложение.",
   "За серию: гость получает фигурку с напитком, а за собранную серию — напиток в подарок.",
   "Как добавку к напитку: гость доплачивает за фигурку, и она приносит вам доход, а не расход.",
 ];
@@ -50,10 +52,11 @@ function Price({ value, old }: { value: number; old?: number }) {
   );
 }
 
-function PriceCard({ title, lines }: { title: string; lines: PriceLine[] }) {
+function PriceCard({ title, note, lines }: { title: string; note?: string; lines: PriceLine[] }) {
   return (
     <div className={styles.card}>
-      <h3>{title}</h3>
+      <h4>{title}</h4>
+      {note && <p className="muted">{note}</p>}
       <dl className={styles.lines}>
         {lines.map((line) => (
           <div key={line.label}>
@@ -70,9 +73,10 @@ export default function Pricing() {
   return (
     <section className="section">
       <span className="eyebrow">Цена</span>
-      <h2>Сколько стоит фигурка</h2>
+      <h2 id="pricing-title">Сколько стоит фигурка</h2>
 
-      <table className={styles.table}>
+      <table className={styles.table} aria-labelledby="pricing-title">
+        <caption className="sr-only">Цена одной фигурки в зависимости от объёма</caption>
         <thead>
           <tr>
             <th scope="col">Объём</th>
@@ -94,34 +98,61 @@ export default function Pricing() {
         </tbody>
       </table>
 
+      <div className={styles.offers}>
+        <div className={styles.offer}>
+          <span className={styles.offerTag}>Начать</span>
+          <h3>Проба готовой фигурки</h3>
+          <p className={styles.offerPrice}>{formatPrice(trialTotal)}</p>
+          <p className="muted">
+            {trialQuantity} мишек или чашечек ({formatPrice(trialCost)}) и доставка (
+            {formatPrice(smallDelivery)}). Проверяете, как гости принимают фигурку.
+          </p>
+          <WhatsAppButton label="Заказать пробу" />
+        </div>
+        <div className={`${styles.offer} ${styles.offerAccent}`}>
+          <span className={styles.offerTag}>Главная идея</span>
+          <h3>Своя серия фигурок</h3>
+          <p className={styles.offerPrice}>
+            {formatPrice(designSeries)} <span>за дизайн {seriesSize} фигурок</span>
+          </p>
+          <p className="muted">
+            Фигурки по вашему логотипу, маскоту или идее. Печать — по шкале выше с надбавкой за
+            размер. При заказе от {formatCount(freeDesignFrom)} первый дизайн бесплатно.
+          </p>
+          <WhatsAppButton label="Обсудить свою серию" href={whatsappSeriesUrl} />
+        </div>
+      </div>
+
       <div className={styles.scenarios}>
         <h3>Не обязательно на каждый стакан</h3>
-        <ul className="dots">
+        <ul className={styles.scenarioList}>
           {scenarios.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </div>
 
-      <div className={styles.cards}>
-        <PriceCard title="Своя фигурка" lines={customExtras} />
-        <PriceCard title="Дизайн и доставка" lines={designAndDelivery} />
-      </div>
-
-      <h3>Условия</h3>
-      <dl className={styles.terms}>
-        {terms.map((item) => (
-          <div key={item.term}>
-            <dt>{item.term}</dt>
-            <dd>{item.value}</dd>
+      <details className={styles.details}>
+        <summary>Подробные цены и условия</summary>
+        <div className={styles.detailsBody}>
+          <div className={styles.cards}>
+            <PriceCard
+              title="Своя фигурка"
+              note="Надбавка к цене шкалы за штуку"
+              lines={customExtras}
+            />
+            <PriceCard title="Дизайн и доставка" lines={designAndDelivery} />
           </div>
-        ))}
-      </dl>
-
-      <WhatsAppButton
-        label={`Заказать пробу за ${formatPrice(trialTotal)} с доставкой`}
-        className={styles.cta}
-      />
+          <dl className={styles.terms}>
+            {terms.map((item) => (
+              <div key={item.term}>
+                <dt>{item.term}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </details>
     </section>
   );
 }

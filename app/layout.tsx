@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   title: "Фигурки на крышках стаканов",
   description:
     "Маленькая 3Д фигурка на крышке стакана, которую гость забирает с собой и запоминает вашу кофейню.",
+  twitter: { card: "summary_large_image" },
   openGraph: {
     title: "Фигурки на крышках стаканов",
     description: "Маленькая 3Д фигурка на каждом стакане вашей кофейни.",

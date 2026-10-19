@@ -9,6 +9,10 @@
 }
 
 /* Схема серии: пустые ячейки и последняя — подарок */
+.block :global(.split) {
+  align-items: start;
+}
+
 .series {
   list-style: none;
   display: grid;
@@ -44,7 +48,11 @@
 }
 
 @media (max-width: 720px) {
-  .series {
+  .block :global(.split) {
+  align-items: start;
+}
+
+.series {
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
