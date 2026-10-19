@@ -1,12 +1,4 @@
-import Image from "next/image";
-import bear from "@/assets/img/bear.webp";
-import cup from "@/assets/img/cup.webp";
 import styles from "./Collection.module.css";
-
-const ready = [
-  { image: bear, title: "Мишка с сердечком" },
-  { image: cup, title: "Чашечка с латте-артом", top: true },
-];
 
 const points = [
   "Серию придумываете вы сами: ваш маскот, логотип, персонаж или любая модель под размер крышки. Готовые фигурки можно добавить в неё.",
@@ -20,27 +12,6 @@ export default function Collection() {
     <section className={`section ${styles.block}`}>
       <span className="eyebrow">Главная идея</span>
       <h2>Своя коллекция фигурок, за которой гости возвращаются</h2>
-      <ul className={styles.series}>
-        {ready.map((item) => (
-          <li key={item.title}>
-            <Image
-              className={item.top ? `${styles.tile} ${styles.top}` : styles.tile}
-              src={item.image}
-              alt={item.title}
-              placeholder="blur"
-              loading="eager"
-              sizes="(max-width: 720px) 33vw, 290px"
-            />
-            <span>{item.title}</span>
-          </li>
-        ))}
-        <li>
-          <div className={`${styles.tile} ${styles.custom}`} aria-hidden="true">
-            +
-          </div>
-          <span>Ваша фигурка</span>
-        </li>
-      </ul>
       <ul className="dots">
         {points.map((point) => (
           <li key={point}>{point}</li>
