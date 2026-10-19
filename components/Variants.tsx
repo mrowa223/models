@@ -5,7 +5,7 @@ import styles from "./Variants.module.css";
 
 const ready = [
   { image: bear, title: "Мишка с сердечком", size: "1,5 × 2 см" },
-  { image: cup, title: "Чашечка с латте-артом", size: "около 1,5 см" },
+  { image: cup, title: "Чашечка с латте-артом", size: "около 1,5 см", top: true },
 ];
 
 export default function Variants() {
@@ -17,7 +17,7 @@ export default function Variants() {
         {ready.map((item) => (
           <article key={item.title} className={styles.card}>
             <Image
-              className={styles.image}
+              className={item.top ? `${styles.image} ${styles.top}` : styles.image}
               src={item.image}
               alt={item.title}
               placeholder="blur"

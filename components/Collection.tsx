@@ -5,7 +5,7 @@ import styles from "./Collection.module.css";
 
 const ready = [
   { image: bear, title: "Мишка с сердечком" },
-  { image: cup, title: "Чашечка с латте-артом" },
+  { image: cup, title: "Чашечка с латте-артом", top: true },
 ];
 
 const points = [
@@ -24,7 +24,7 @@ export default function Collection() {
         {ready.map((item) => (
           <li key={item.title}>
             <Image
-              className={styles.tile}
+              className={item.top ? `${styles.tile} ${styles.top}` : styles.tile}
               src={item.image}
               alt={item.title}
               placeholder="blur"

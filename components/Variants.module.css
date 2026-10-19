@@ -19,6 +19,10 @@
   object-fit: cover;
 }
 
+.top {
+  object-position: center top;
+}
+
 .body {
   padding: 16px;
   display: grid;

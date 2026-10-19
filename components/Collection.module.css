@@ -31,6 +31,10 @@
   object-fit: cover;
 }
 
+.top {
+  object-position: center top;
+}
+
 .custom {
   display: grid;
   place-items: center;
