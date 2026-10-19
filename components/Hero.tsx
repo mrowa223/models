@@ -1,0 +1,40 @@
+import Image from "next/image";
+import styles from "./Hero.module.css";
+
+const facts = [
+  { value: "1,5 × 2 см", label: "размер мишки" },
+  { value: "≈ 1,5 см", label: "размер чашечки" },
+  { value: "Кастом", label: "своя фигурка под ваш бренд" },
+];
+
+export default function Hero() {
+  return (
+    <section className={`section split ${styles.hero}`}>
+      <div className="stack">
+        <span className={`eyebrow ${styles.eyebrow}`}>Идея для вашей кофейни</span>
+        <h1>Маленькая 3Д фигурка на каждом стакане</h1>
+        <p className={styles.lead}>
+          Бариста приклеивает фигурку на крышку, гость получает её вместе с напитком и уносит с
+          собой. Так обычный стакан становится вашим узнаваемым стаканом.
+        </p>
+        <ul className={styles.facts}>
+          {facts.map((fact) => (
+            <li key={fact.label}>
+              <b>{fact.value}</b>
+              <span>{fact.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <Image
+        className="photo"
+        src="/img/hero.webp"
+        alt="Стакан с мишкой и двумя чашечками на крышке"
+        width={729}
+        height={900}
+        sizes="(max-width: 720px) 100vw, 440px"
+        priority
+      />
+    </section>
+  );
+}
