@@ -85,6 +85,7 @@
 }
 
 .offer {
+  scroll-margin-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -112,6 +113,7 @@
 }
 
 .offerPrice span {
+  display: block;
   font-family: var(--body);
   font-size: 14px;
   color: var(--muted);

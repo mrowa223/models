@@ -8,7 +8,7 @@ export default function Cta() {
     <section className={`section ${styles.cta}`}>
       <h2>Как запустить пробу</h2>
       <p>
-        Работаю в Астане. Напишите, какую фигурку хотите — мишку или чашечку, — и я подготовлю{" "}
+        Напишите, какую фигурку хотите — мишку или чашечку, — и я подготовлю{" "}
         {formatCount(trialQuantity)} для вашей точки. Свою серию обсудим отдельно.
       </p>
       <div className={styles.actions}>

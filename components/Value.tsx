@@ -27,7 +27,7 @@ const values = [
   },
   {
     title: "Небольшая доля чека",
-    text: `Готовая фигурка стоит ${formatNumber(bulk.one)}–${formatPrice(regular.one)}: это ${shareOfCheque} от чека в ${formatPrice(drinkPriceExample)}, своя — до ${customShare}. А давать её можно только к части напитков.`,
+    text: `Готовая фигурка стоит ${formatNumber(bulk.one)}–${formatPrice(regular.one)}: это ${shareOfCheque} от чека в ${formatPrice(drinkPriceExample)}, своя — до ${customShare}.`,
   },
 ];
 

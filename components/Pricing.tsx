@@ -105,12 +105,11 @@ export default function Pricing() {
 
       <p className={styles.argument}>
         {formatCount(bulkFrom)} обойдутся дешевле, чем {formatCount(bulkArgument.smallQuantity)}:{" "}
-        {formatPrice(bulkArgument.big)} против {formatPrice(bulkArgument.small)} — от{" "}
-        {formatCount(bulkFrom)} доставка бесплатна.
+        {formatPrice(bulkArgument.big)} против {formatPrice(bulkArgument.small)} с доставкой.
       </p>
 
-      <div className={styles.offers} id="offers">
-        <div className={styles.offer}>
+      <div className={styles.offers}>
+        <div className={styles.offer} id="trial">
           <span className="eyebrow">Начать</span>
           <h3>Проба готовой фигурки</h3>
           <p className={styles.offerPrice}>{formatPrice(trialTotal)}</p>
@@ -120,7 +119,7 @@ export default function Pricing() {
           </p>
           <WhatsAppButton label="Заказать пробу" />
         </div>
-        <div className={`${styles.offer} ${styles.offerAccent}`}>
+        <div className={`${styles.offer} ${styles.offerAccent}`} id="series">
           <span className="eyebrow">Под ваш бренд</span>
           <h3>Своя серия фигурок</h3>
           <p className={styles.offerPrice}>

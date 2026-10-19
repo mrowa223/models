@@ -13,6 +13,7 @@ export default function Page() {
   return (
     <main className={styles.wrap}>
       <Hero />
+      <WhatsAppButton sticky />
       <Collection />
       <Placement />
       <Variants />
@@ -20,7 +21,6 @@ export default function Page() {
       <Pricing />
       <Process />
       <Cta />
-      <WhatsAppButton sticky />
     </main>
   );
 }

@@ -28,10 +28,14 @@ export default function Hero() {
             </li>
           ))}
         </ul>
-        <nav className={styles.offers} aria-label="Предложения">
-          <a href="#offers">Проба — {formatPrice(trialTotal)} →</a>
-          <a href="#offers">Своя серия — от {formatPrice(seriesExample.total)} →</a>
-        </nav>
+        <p className={styles.offers}>
+          <a href="#trial">
+            Проба — {formatPrice(trialTotal)} <span aria-hidden="true">→</span>
+          </a>
+          <a href="#series">
+            Своя серия — от {formatPrice(seriesExample.total)} <span aria-hidden="true">→</span>
+          </a>
+        </p>
         <WhatsAppButton tone="band" desktopOnly />
       </div>
       <Image

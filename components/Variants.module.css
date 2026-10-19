@@ -90,6 +90,10 @@
     grid-template-columns: 1fr;
   }
 
+  .image {
+    aspect-ratio: 4 / 3;
+  }
+
   .customTile {
     aspect-ratio: 2 / 1;
   }
